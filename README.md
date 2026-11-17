@@ -115,7 +115,7 @@ Potato-Leaf-Disease/
 **1. Clone the repository**
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+https://github.com/ghanshyamrajput/potato_cnn_disease_classifier
 ```
 
 **2. Install the required libraries**
