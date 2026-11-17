@@ -1,31 +1,146 @@
-# Potato Leaf Disease Classification using CNN
+# Potato Leaf Disease Detection Using CNN
 
-## Project Overview
-A Convolutional Neural Network (CNN) built using TensorFlow and Keras to classify potato leaf images into three categories:
+## About the Project
 
-- Healthy
+This is a Deep Learning project developed to detect diseases in potato leaves using a Convolutional Neural Network (CNN).
+
+The model takes a potato leaf image as input and predicts whether the leaf is affected by Early Blight, Late Blight, or is Healthy.
+
+I have also created a simple web application using Streamlit where users can upload an image and check the prediction along with confidence scores.
+
+## Classes
+
+The model identifies three classes:
+
 - Early Blight
 - Late Blight
+- Healthy
 
-## Project Workflow
-1. **Data Loading:** Loaded potato leaf images from the PlantVillage dataset.
-2. **Data Preprocessing:** Resized images to 128×128, converted them to RGB, and normalized pixel values.
-3. **Data Augmentation:** Applied random flipping and rotation to improve generalization.
-4. **CNN Architecture:** Built a CNN using Conv2D, ReLU, MaxPooling, Flatten, Dense, Dropout, and Softmax layers.
-5. **Model Training:** Trained the model using the Adam optimizer and Sparse Categorical Crossentropy loss.
-6. **Model Evaluation:** Evaluated performance using accuracy, precision, recall, F1-score, and a confusion matrix.
-7. **Prediction:** Tested the trained model on potato leaf images and saved it in `.keras` format.
+## Tools and Technologies
 
-## Technologies Used
-Python, TensorFlow, Keras, NumPy, Matplotlib, Pillow, Scikit-learn, Jupyter Notebook.
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Matplotlib
+- Pillow (PIL)
+- Streamlit
 
-## How to Run
-1. Install the required libraries.
-2. Download the PlantVillage potato leaf dataset and place the three class folders inside `data/`.
-3. Open `cnn_code.ipynb` in Jupyter Notebook or VS Code.
-4. Run the cells sequentially to train, evaluate, and test the CNN model.
+## Model Details
 
-## Note
-The dataset and trained model are not included in this repository. This project is intended for educational purposes.
+I built a CNN model using the following layers:
 
-## test
+- Conv2D
+- Batch Normalization
+- ReLU Activation
+- MaxPooling2D
+- Global Average Pooling
+- Dense Layer
+- Dropout
+- Softmax
+
+The model takes images of size 128 × 128 with 3 RGB channels.
+
+## Data Preprocessing
+
+Before training, I performed the following steps:
+
+- Loaded images from the dataset.
+- Resized images to 128 × 128.
+- Converted images into RGB format.
+- Split the dataset into 80% training and 20% validation.
+- Applied image normalization.
+
+## Data Augmentation
+
+To make the model learn from different image variations, I used:
+
+- Random Flip
+- Random Rotation
+- Random Zoom
+- Random Contrast
+
+## Model Training
+
+The model was trained using:
+
+- Optimizer: Adam
+- Learning Rate: 0.00001
+- Loss Function: Sparse Categorical Crossentropy
+- Batch Size: 32
+- Epochs: 40
+
+I also used Early Stopping and ReduceLROnPlateau to improve the training process.
+
+## Model Evaluation
+
+After training, I checked the model performance using:
+
+- Training Accuracy
+- Validation Accuracy
+- Training Loss
+- Validation Loss
+- Confusion Matrix
+
+## Streamlit Application
+
+I created a Streamlit application for disease prediction.
+
+**Application features:**
+
+- Upload a potato leaf image.
+- View the uploaded image.
+- Click on the Predict Disease button.
+- Get the predicted disease name.
+- View confidence scores for Early Blight, Late Blight, and Healthy.
+
+## Project Structure
+
+```text
+Potato-Leaf-Disease/
+│
+├── data/
+│   ├── Potato___Early_blight/
+│   ├── Potato___Late_blight/
+│   └── Potato___healthy/
+│
+├── app.py
+├── potato_cnn_model.keras
+├── classification_report.txt
+└── README.md
+```
+
+## How to Run the Project
+
+**1. Clone the repository**
+
+```bash
+git clone YOUR_REPOSITORY_URL
+```
+
+**2. Install the required libraries**
+
+```bash
+pip install tensorflow numpy matplotlib pillow streamlit
+```
+
+**3. Run the Streamlit application**
+
+```bash
+streamlit run app.py
+```
+
+## Future Scope
+
+- Improve prediction accuracy.
+- Add more plant disease categories.
+- Include disease prevention information.
+- Deploy the application online.
+
+## Author
+
+**Ghanshyam Rajput**
+
+Project: Potato Leaf Disease Detection
+
+Technologies: Python, Deep Learning, CNN, TensorFlow, Streamlit
